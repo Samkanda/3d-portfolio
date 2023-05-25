@@ -13,7 +13,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* <NavBar/> */}
     {/* <NavBar2/> */}
     <App />
-    <BotBar/>
     <Projects/>
   </React.StrictMode>,
 )

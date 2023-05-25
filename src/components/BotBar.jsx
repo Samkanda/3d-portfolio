@@ -1,6 +1,6 @@
 import React from 'react'
-
-export const BotBar = () => {
+import gsap from "gsap"
+export const BotBar = ({camera}) => {
   return (
     <div className=' fixed bottom-0 w-full '>
                 <div className=' w-full h-3 bg-[#2e292b] flex'> </div>
@@ -9,15 +9,15 @@ export const BotBar = () => {
             <div className='flex justify-center  '>
             <div className=' ml-2 order-[00] relative self-center '>
 
-            <div class="skull right-4">
-			<div class="eyes">
-				<div class="eye"></div>
-				<div class="eye"></div>
+            <div className="skull right-4">
+			<div className="eyes">
+				<div className="eye"></div>
+				<div className="eye"></div>
 			</div>
-			<div class="teeth">
-				<div class="tooth"></div>
-				<div class="tooth"></div>
-				<div class="tooth"></div>
+			<div className="teeth">
+				<div className="tooth"></div>
+				<div className="tooth"></div>
+				<div className="tooth"></div>
 			</div>
             </div>
 		</div>
@@ -32,7 +32,18 @@ export const BotBar = () => {
                     </div>
                 </div>
                 <div className='book-bg data'>
-                <div className='book'>
+                <div className='book' onClick={() => 
+                (
+                    gsap.to(camera.position, {
+                        x:-13.390, 
+                        y:0.694,
+                        z:23.097,
+                        duration: 1.5,
+                        onUpdate: function() {
+                            camera.lookAt(5.28, 0.28, 4.42)
+                        }
+                    })  
+                         )}>
                     <div id='book-shading'></div>
                     <h1>Works</h1>
                     <div className='contents'>
@@ -77,14 +88,14 @@ export const BotBar = () => {
                     </div>
                 </div>
                 <div className=' ml-2 order-[300] '>
-                    <div class="h-full w-3 bg-[#2e292b] flex"></div>
+                    <div className="h-full w-3 bg-[#2e292b] flex"></div>
                 </div>
                 <div className=' ml-2 order-[300] relative'>
-                    <div class="potion z-20 absolute ml-2">
-                    <div class="liquid"></div>
-                    <div class="bubble"></div>
-                    <div class="bubble two"></div>
-                    <div class="bubble three"></div>
+                    <div className="potion z-20 absolute ml-2">
+                    <div className="liquid"></div>
+                    <div className="bubble"></div>
+                    <div className="bubble two"></div>
+                    <div className="bubble three"></div>
                 </div>
                 </div>
             </div>

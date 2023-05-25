@@ -3,24 +3,38 @@ import './App.css'
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
+import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
 
+import { BotBar } from './components/BotBar';
 function App() {
 const canvasRef = useRef(null);
-
+const [cameraState, setCamera] = useState()
 useEffect(() => {
-console.log("test")
 //Scene
   const scene = new THREE.Scene({});
   scene.background = new THREE.Color( 'skyblue' );
 
+var rgbeLoader = new RGBELoader();
+
+// rgbeLoader.load("./lilienstein_4k.hdr", envMap => {
+//   scene.environment = envMap;
+//   envMap.mapping = THREE.EquirectangularReflectionMapping;
+
+//   // scene.background = envMap;
+//   scene.environment = envMap;
+// }, undefined, error => {
+//   console.error("Failed to load envMap.", error);
+// });
+
 //Light
-const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
-hemiLight.position.set(20, 20, 10);
-scene.add(hemiLight);
+  const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
+  hemiLight.position.set(20, 20, 10);
+  scene.add(hemiLight);
   const light = new THREE.DirectionalLight(0xFFFFFF, 1.3)
   light.position.set(-10, 20, 6);
   light.lookAt(0,0,0)
-  light.castShadow = true
+  light.castShadow = true;
+  light.receiveShadow = true;
   light.shadow.camera.top = 200;
   light.shadow.camera.bottom = -200;
   light.shadow.camera.left = - 200;
@@ -31,7 +45,8 @@ scene.add(hemiLight);
   scene.add(light.target);
 
 //Camera
-    const camera=  new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 9000 );
+    const camera=  new THREE.PerspectiveCamera(50, window.innerWidth/window.innerHeight, 0.01, 1000 );
+    setCamera(camera)
     camera.position.z = 120;
     camera.position.y = 40;
     scene.add(camera)
@@ -51,8 +66,8 @@ scene.add(hemiLight);
 //Controls
     const controls = new OrbitControls(camera, canvas)
     controls.enableDamping = true
-
-const loader = new GLTFLoader();
+    
+    const loader = new GLTFLoader();
 let mixer;
 loader.load(
     './medieval_fantasy_book/untitled.glb',
@@ -101,7 +116,9 @@ function animate() {
 }, []);
 
   return (
-    <> <canvas  id= "stuff" className="webgl" ref={canvasRef} />; </>
+    <> <canvas  id= "stuff" className="webgl" ref={canvasRef} />; 
+    <BotBar camera = {cameraState}/>
+    </>
   )
 }
 
