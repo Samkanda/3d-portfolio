@@ -1,123 +1,3 @@
-.container {
-    width: 300px;
-    height: 600px;
-    position: relative;
-
-    z-index: 100;
-    -webkit-perspective: 1300px;
-    perspective: 1300px;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-.page {
-	position: absolute;
-	-webkit-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-	-webkit-transition-property: -webkit-transform;
-	transition-property: transform;
-
-	width: 50%;
-	height: 100%;
-	left: 50%;
-	-webkit-transform-origin: left center;
-	transform-origin: left center;
-}
-
-#first,
-#first .back {
-	-webkit-transform: rotateY(180deg);
-	transform: rotateY(180deg);
-}
-
-#first {
-    z-index: 102;
-}
-#second {
-    z-index: 103;
-    transition: transform 0.8s ease-in-out;
-}
-#third .content {
-    width: 400px;
-}
-#fourth {
-    z-index: 101;
-}
-
-.page > div,
-.outer,
-.content,
-.helper-class-to-make-bug-visbile {
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-.page > div {
-	width: 100%;
-	-webkit-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-}
-
-.back {
-	-webkit-transform: rotateY(-180deg);
-	transform: rotateY(-180deg);
-}
-
-.outer {
-	width: 100%;
-	overflow: hidden;
-    z-index: 999;
-}
-
-/* problematic class: `.content` */
-.content {
-    width: 200%;
-    background: red;
-}
-
-
-.front .content {
-	left: -100%;
-}
-
-
-
-/* controls */
-#prev, #next {
-    position: absolute;
-    width: 50%;
-    height: 100%;
-    z-index: 999;
-}
-#prev:hover, #next:hover {
-    background: rgba(0,0,0,0.05);
-    cursor: pointer;
-}
-#prev {
-    top: 0;
-    left: 0;
-}
-#next {
-    top: 0;
-    left: 50%;
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* General Demo Style */
@@ -125,102 +5,15 @@
     font-family: 'the_godfatherregular';
     src: url('./fonts/TheGodfather-v2.ttf') format('truetype');
   }
-*,
-*:after,
-*:before {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	padding: 0;
-	margin: 0;
-}
 
 .clearfix:before,
-.clearfix:after {
-	display: grid;
-}
+.clearfix:after { display: grid;}
 
-body {
-	background: #f6f6f6;
-	font-weight: 400;
-	font-size: 15px;
-	color: #333;
-	overflow: scroll;
-	overflow-x: hidden;
-}
-
-.demo-2 body {
-	background: url(https://tympanus.net/Development/3DBookShowcase/images/wood.jpg);
-}
+body { overflow-x: hidden; }
 
 a {
 	color: #555;
 	text-decoration: none;
-}
-
-.container {
-	width: 100%;
-}
-
-/* Header Style */
-
-.codrops-top {
-	line-height: 24px;
-	font-size: 11px;
-	background: #fff;
-	background: rgba(255, 255, 255, 0.5);
-	text-transform: uppercase;
-	z-index: 9999;
-	position: relative;
-	box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.2);
-}
-
-.codrops-top a {
-	padding: 0px 10px;
-	letter-spacing: 1px;
-	color: #333;
-	display: inline-block;
-}
-
-.codrops-top a:hover {
-	background: rgba(255, 255, 255, 0.8);
-	color: #000;
-}
-
-.codrops-top span.right {
-	float: right;
-}
-
-.codrops-top span.right a {
-	float: left;
-	display: block;
-}
-
-
-/* Demo Buttons Style */
-
-.codrops-demos {
-	float: right;
-}
-
-.codrops-demos a {
-	display: inline-block;
-	margin: 10px;
-	color: #666;
-	font-weight: 700;
-	line-height: 30px;
-	border-bottom: 4px solid transparent;
-}
-
-.codrops-demos a:hover {
-	color: #000;
-	border-color: #000;
-}
-
-.codrops-demos a.current-demo,
-.codrops-demos a.current-demo:hover {
-	color: #aaa;
-	border-color: #aaa;
 }
 
 .support-note {
@@ -234,28 +27,14 @@ a {
 	clear: both;
 }
 
-.bookshelf {
-	width: 100%;
-	height: 63px;
-	z-index: -1;
-	margin-top: -25px;
-	background: transparent url(https://tympanus.net/Development/3DBookShowcase/images/shelf.png) no-repeat center center;
-	position: relative;
-}
-
-
 /*book showcase*/
 
-.bk-list {
-	list-style: none;
-	position: relative;
-}
+.bk-list {position: relative;}
 
 .bk-list li {
 	position: relative;
 	width: 300px;
 	float: left;
-	z-index: 1;
 	margin: 0px 50px 40px 0;
 	-webkit-perspective: 1800px;
 	perspective: 1800px;
@@ -402,6 +181,18 @@ a {
 	background-color: #000;
 	-webkit-transform: rotate3d(0, 1, 0, -179deg);
 	transform: rotate3d(0, 1, 0, -179deg);
+	
+}
+.bk-cover-back{
+	display: flex !important;
+    align-items: center;
+    justify-content: flex-end;
+}
+.bk-list li .bk-cover-page {
+	background-color: white;
+	padding: 1rem;
+	width: 195px;
+	height: 290px;
 }
 
 .bk-list li .bk-right {
@@ -555,18 +346,13 @@ a {
 	border-radius: 50%;
 }
 
-
 /* Individual style & artwork */
-
-
 /* Book 1 */
 
 .book-1 .bk-front > div,
 .book-1 .bk-back,
 .book-1 .bk-left,
-.book-1 .bk-front:after {
-	background-color: #ff924a;
-}
+.book-1 .bk-front:after {background-color: #ff924a;}
 
 .book-1 .bk-cover {
 	background-image: url(https://tympanus.net/Development/3DBookShowcase/images/1.png);
@@ -575,13 +361,7 @@ a {
 }
 
 .book-1 .bk-cover h2 {
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	padding: 30px;
 	background: rgba(255, 255, 255, 0.2);
-	color: #fff;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -593,35 +373,12 @@ a {
 	padding-right: 20px;
 }
 
-.book-1 .bk-cover h2 span:first-child {
-	display: block;
-}
+.book-1 .bk-cover h2 span:first-child {display: block;}
 
 .book-1 .bk-cover h2 span:last-child,
 .book-1 .bk-left h2 span:last-child {
 	font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
 }
-
-.book-1 .bk-content p {
-	font-family: Georgia, Times, "Times New Roman", serif;
-}
-
-.book-1 .bk-left h2 {
-	color: #fff;
-	font-size: 15px;
-	line-height: 40px;
-	padding-right: 10px;
-	text-align: right;
-}
-
-.book-1 .bk-back p {
-	color: #fff;
-	font-size: 13px;
-	padding: 30px;
-	text-align: center;
-	font-weight: 700;
-}
-
 
 /* Book 2 */
 
@@ -633,7 +390,7 @@ a {
 }
 
 .book-2 .bk-cover {
-	background-image: url(https://tympanus.net/Development/3DBookShowcase/images/2.png);
+	/* background-image: url(https://tympanus.net/Development/3DBookShowcase/images/2.png); */
 	background-repeat: no-repeat;
 	background-position: 98% 0%;
 }
@@ -645,26 +402,9 @@ a {
 	font-weight: 400;
 }
 
-.book-2 .bk-cover h2 {
-	font-size: 80px;
-	line-height: 80px;
-	padding: 30px;
-}
-
 .book-2 .bk-cover h2 span:first-child {
 	position: relative;
 	display: block;
-}
-
-.book-2 .bk-cover h2 span:first-child:before {
-	content: 'A novel';
-	font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
-	text-transform: uppercase;
-	position: absolute;
-	color: red;
-	font-size: 20px;
-	right: -15px;
-	bottom: -60px;
 }
 
 .book-2 .bk-cover h2 span:last-child {
@@ -674,51 +414,11 @@ a {
 	position: relative;
 }
 
-.book-2 .bk-cover h2 span:last-child:before {
-	content: 'by';
-	font-size: 16px;
-	color: red;
-	position: absolute;
-	top: -32px;
-	left: 62px;
-	font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
-}
-
-.book-2 .bk-cover h2 span:last-child:after {
-	content: '';
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	background: #f9ed65;
-	position: absolute;
-	top: 5px;
-	left: 101px;
-}
-
-.book-2 .bk-left h2 {
-	font-size: 20px;
-	line-height: 40px;
-	padding-right: 10px;
-	text-align: right;
-}
-
-.book-2 .bk-back p {
-	color: red;
-	font-size: 13px;
-	font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
-	padding: 40px;
-	text-align: center;
-}
-
+.book-2 .bk-back p { font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;}
 
 /* Book 3 */
-
-.book-3 .bk-front > div,
-.book-3 .bk-back,
-.book-3 .bk-left,
-.book-3 .bk-front:after {
-	background-color: #a4c19e;
-}
+.book-3 .bk-front > div, .book-3 .bk-back, .book-3 .bk-left, .book-3 .bk-front:after {
+	background-color: #a4c19e; }
 
 .book-3 .bk-cover {
 	background-image: url(https://tympanus.net/Development/3DBookShowcase/images/3.png);
@@ -744,15 +444,7 @@ a {
 	padding-right: 20px;
 }
 
-.book-3 .bk-cover h2 span:first-child {
-	display: block;
-}
-
-.book-3 .bk-cover h2 span:last-child,
-.book-3 .bk-left h2 span:last-child,
-.book-3 .bk-content p {
-	font-family: Georgia, Times, "Times New Roman", serif;
-}
+.book-3 .bk-cover h2 span:first-child {display: block;}
 
 .book-3 .bk-left h2 {
 	color: #fff;
@@ -774,21 +466,4 @@ a {
 	padding: 30px;
 	text-align: center;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
-}
-
-
-/* Fallbacks */
-
-.no-csstransforms3d .bk-list li .bk-book > div,
-.no-csstransforms3d .bk-list li .bk-book .bk-cover-back {
-	display: inline-block;
-}
-
-.no-csstransforms3d .bk-list li .bk-book > div.bk-front {
-	display: block;
-}
-
-.no-csstransforms3d .bk-info button,
-.no-js .bk-info button {
-	display: inline-block;
 }
