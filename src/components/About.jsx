@@ -1,77 +1,43 @@
 import React from 'react';
 import {motion} from "framer-motion"
-import { Tilt } from 'react-tilt';
-import book from '../icons/book.svg'
-import pencil from '../icons/pencil.svg'
-import webpage from '../icons/webpage.svg'
 import '../styles/card.scss'; 
-export const About = () => {
-    const details = [{title: "Web Developer", icon: book},  {title: "Designer", icon: pencil},  {title: "Backend", icon: webpage},]
-  return (
-    <div className='flex justify-center items-center p-10'>
-        <div className=' w-[80rem]'> 
-        <motion.div className=' '>
-            <p className='sm:text-[18px] text-[14px] text-gray-400  uppercase tracking-wider'>Overview</p>
-            <h2 className='text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]'>Skills</h2>
-        </motion.div>
 
-        <div className='mt-20 flex flex-wrap gap-10 justify-center'>
-            {/* {details.map((detail, index) => ( */}
-                <Card />
-            {/* ))} */}
+export const About = () => {
+  return (
+    <section className='relative w-full mx-auto'>
+       <h1 className=' font-mono text-6xl mb-2'>Resume</h1>
+       <div className=' w-48 h-2 rounded-lg bg-[#915EFF] '/>
+        <div className='px-5 pt-10'>
+
+        <ol class="relative border-l border-gray-200 dark:border-gray-700"> 
+        <li class="mb-10 ml-4">
+        <div class="absolute w-7 h-7 bg-gray-200 rounded-sm mt--3 -left-3.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+        <h3 class="  text-2xl font-semibold text-[#915EFF] pl-1">Experience</h3>
+    </li>                 
+    <li class="mb-10 ml-4">
+        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+        <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">February 2022</time>
+        <h3 class="text-lg font-semibold text-[#915EFF]">Hexigon - Senior Front-End Developer</h3>
+        <p class="mb-4 text-base font-normal text-white dark:text-gray-400">Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.</p>
+        {/* <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">Learn more <svg class="w-3 h-3 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></a> */}
+    </li>
+    <li class="mb-10 ml-4">
+        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+        <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">March 2022</time>
+        <h3 class="text-lg font-semibold text-[#915EFF]">PlayLine - Lead Front-End Developer</h3>
+        <p class="text-base font-normal text-white">All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.</p>
+    </li>
+    <li class="ml-4">
+        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+        <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">April 2022</time>
+        <h3 class="text-lg font-semibold text-[#915EFF]">RealtyShop - Front-End Developer/Designer</h3>
+        <p class="text-base font-normal text-white">Get started with dozens of web components and interactive elements built on top of Tailwind CSS.</p>
+    </li>
+</ol>
+
         </div>
-        </div>
-    
-    </div>
+       </section>
   )
 }
 
-const Card = ({index, title, icon}) => (
-    <div className='cardBody max-w-7xl   text-purple-600'>
-    <div className="cardContainer">
-        <div className="card" >
-            <div className="img-box">
-                <img src={book}/>
-            </div>
-            <div className="content">
-                <h2>Front-End</h2>
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Architecto, hic? Magnam eum error saepe doloribus corrupti
-                    repellat quisquam alias doloremque!
-                </p>
-                <a href="">Read More</a>
-            </div>
-        </div>
-        <div className="card" >
-            <div className="img-box">
-                <img src={pencil}/>
-            </div>
-            <div className="content">
-                <h2>Back-End</h2>
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Architecto, hic? Magnam eum error saepe doloribus corrupti
-                    repellat quisquam alias doloremque!
-                </p>
-                <a href="">Read More</a>
-            </div>
-        </div>
-        <div className="card" >
-            <div className="img-box">
-                <img src={webpage}/>
-            </div>
-            <div className="content">
-                <h2>Design</h2>
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Architecto, hic? Magnam eum error saepe doloribus corrupti
-                    repellat quisquam alias doloremque!
-                </p>
-                <a href="">Read More</a>
-            </div>
-        </div>
-    </div>
-    </div>
-);
 
