@@ -22,7 +22,7 @@ export default function Experience()
 
         <color args={ [ '#241a1a' ] } attach="background" />
 
-        <Environment files="./models/the_lost_city_1k.hdr" background blur={0.5} />
+        {/* <Environment files="./models/the_lost_city_1k.hdr" background blur={0.5} /> */}
 
         <PresentationControls
             global
