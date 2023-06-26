@@ -4,7 +4,7 @@ import {works} from '../constans/constans.jsx'
 import github from '../icons/github.png'
 export const Projects = () => {
   return (
-    <div className='flex flex-col  p-10 items-center'>
+    <div className='flex flex-col items-center'>
       <div className=''>
         <motion.div>
             <p className='sm:text-[18px] text-[14px] text-gray-400  uppercase tracking-wider'>My Work</p>
