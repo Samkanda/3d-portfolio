@@ -7,7 +7,6 @@ import bear from '../icons/bear.png'
 import terminal from '../icons/terminal.png'
 import facetime from '../icons/facetime.png'
 import vscode from '../icons/vscode.png'
-import { openWindow } from '../helpers/functions';
 import {
     MotionValue,
     motion,
@@ -16,8 +15,9 @@ import {
     useTransform,
   } from "framer-motion";
 
-export function Dock() {
+export function Dock({setOpen}) {
     let mouseX = useMotionValue(Infinity);
+
   
     return (
       <div className='flex  w-full sm:w-max fixed left-0 right-0 mx-auto bottom-1 z-50 overflow-x-scroll sm:overflow-x-visible'>
@@ -26,8 +26,8 @@ export function Dock() {
         onMouseLeave={() => mouseX.set(Infinity)}
         className="mx-auto flex h-16 items-end gap-4 rounded-2xl bg-gray-700 px-4 pb-3"
       >
-        {[...Array(6).keys()].map((i) => (
-          <AppIcon mouseX={mouseX} count={i} key={i} />
+        {[...Array(8).keys()].map((i) => (
+          <AppIcon mouseX={mouseX} count={i} key={i} setOpen={setOpen}/>
         ))}
       </motion.div>
       </div>
@@ -36,7 +36,13 @@ export function Dock() {
 
 
   
-function AppIcon({ mouseX, count }) {
+function AppIcon({ mouseX, count, setOpen }) {
+  const openWindow = (i)=> {
+   console.log(i)
+   if(i == 0) {
+    setOpen(true)
+   }
+  }
   const icons =[launchPad, github, mail, safari, bear, terminal, facetime, vscode ]
   const ref = useRef(null);
 
@@ -53,8 +59,8 @@ function AppIcon({ mouseX, count }) {
     <motion.div
       ref={ref}
       style={{ width }}
-      className="aspect-square w-10 rounded-full bg-gray-400">
-        <img onClick={openWindow} src={icons[count]}/>
+      className="aspect-square w-10 ">
+        <img onClick={() => { openWindow(count) }} src={icons[count]}/>
       </motion.div>
   );
 }
