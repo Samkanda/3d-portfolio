@@ -13,9 +13,13 @@ body,
     height: 100%;
     /* background: #241a1a; */
     background-image: url("./images/wallpaper-day.jpg");
+    object-fit: cover;
 }
 .EmbedContainer{
+  height: 100%;
+  width: auto;
   background-image: url("./images/wallpaper-day.jpg");
+  object-fit: cover;
 
 }
 
@@ -30,9 +34,7 @@ body,
   &.dark {
     background: #273138;
     
-    .dot {
-      background: #4a5c66;
-    }
+  
   }
 
   &.yosemite {
@@ -53,7 +55,7 @@ body,
   display: inline-block;
   width: 10px;
   height: 10px;
-  background: #f9f9f9;
+  // background: #f9f9f9;
   border-radius: 50%;
   margin: 0 4px 0 0;
   
@@ -76,7 +78,7 @@ body,
 
 .wrapper {
     // padding: 10px;
-    width: 60rem;
+    width: 62.5rem;
     height: 40rem;
     /* transform: scale(1); */
     transform-origin: top left;
