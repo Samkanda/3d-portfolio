@@ -10,13 +10,13 @@ console.log(open)
   return (
     <>
       <Navbar/>
-      <Draggable bounds=".EmbedContainer ">
-      <div className="EmbedContainer mt-10  text-white h-full">
-       
-        {open ?  <Window setOpen={setOpen}/>: ""}
+      <div className="EmbedContainer  text-white h-full">
+      <Draggable bounds={{left: 0, top: 30, right: 0, bottom: 0}}>
+        <div className='h-full w-full'>        {open ?  <Window setOpen={setOpen}/>: ""}
+</div>
+      </Draggable>
 
       </div>
-      </Draggable>
       
       <Dock setOpen={setOpen}/>
     </>
