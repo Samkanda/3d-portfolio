@@ -19,7 +19,7 @@ const Window = ({setOpen}) => {
     <Draggable
     axis="both"
     handle=".handle"
-    defaultPosition={{x: 0, y: 0}}
+    defaultPosition={{x: 0, y: 30}}
     position={null} 
     scale={1}
     bounds=".EmbedContainer"
@@ -27,8 +27,8 @@ const Window = ({setOpen}) => {
     // onDrag={handleDrag}
     // onStop={handleStop}
     >
-    <div className='overflow-hidden resize  bg-slate-600 rounded-t-lg 
-    max-w-full '>
+    <div className='overflow-hidden h-[40rem] resize  bg-slate-600 rounded-t-lg 
+    max-w-full max-h-full'>
     <div className=" handle  outer dark opacity-90 w-full rounded-[7px_7px_0px_0px];
     background: #b4b4b4;">
         <div className="dot bg-red-500" onClick={()=> setOpen(false)}></div>
@@ -37,9 +37,10 @@ const Window = ({setOpen}) => {
     </div>
         <div className='  h-full flex'>
           <div className='left text-gray-100  w-[10rem] h-full  '>
-            <h1 className='mx-4 py-4 hover:font-bold' onClick={() => setTab("Intro")}> Introduction</h1>
-            <h1 className='mx-4 py-4 hover:font-bold' onClick={() => setTab("About")}> Resume</h1>
-            <h1 className='mx-4 my-4 hover:font-bold'onClick={() => setTab("Projects")}> Projects</h1>
+            <h1 className=' cursor-pointer mx-4 py-4 hover:font-bold' onClick={() => setTab("Intro")}> Introduction</h1>
+            <div>            <h1 className='cursor-pointer mx-4 py-4 hover:font-bold' onClick={() => setTab("About")}> Resume</h1>
+</div>
+            <h1 className='cursor-pointer mx-4 my-4 hover:font-bold'onClick={() => setTab("Projects")}> Projects</h1>
           </div>
           <div className='right p-4 bg-[#273138] w-full h-full overflow-auto '>
             {tab === "Intro" && <Hero />} 
