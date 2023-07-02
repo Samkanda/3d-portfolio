@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from 'react';
-import launchPad from '../icons/launchpad.png'
 import github from '../icons/github.png'
 import mail from '../icons/mail.png'
 import safari from '../icons/safari.png'
-import bear from '../icons/bear.png'
-import terminal from '../icons/terminal.png'
-import facetime from '../icons/facetime.png'
+import folder from '../icons/folder2.png'
 import vscode from '../icons/vscode.png'
+import camera from '../icons/camera.png'
+
 import {
     MotionValue,
     motion,
@@ -26,7 +25,7 @@ export function Dock({setOpen}) {
         onMouseLeave={() => mouseX.set(Infinity)}
         className="mx-auto flex h-16 items-end gap-4 rounded-2xl bg-gray-700 px-4 pb-3"
       >
-        {[...Array(8).keys()].map((i) => (
+        {[...Array(6).keys()].map((i) => (
           <AppIcon mouseX={mouseX} count={i} key={i} setOpen={setOpen}/>
         ))}
       </motion.div>
@@ -38,12 +37,17 @@ export function Dock({setOpen}) {
   
 function AppIcon({ mouseX, count, setOpen }) {
   const openWindow = (i)=> {
-   console.log(i)
    if(i == 0) {
     setOpen(true)
    }
+   if(i == 1) {
+    window.open('https://github.com/Samkanda', '_blank', 'noreferrer');
+   }
+   if(i ==2){
+    window.location = 'mailto:navpreetkanda1@hotmail.ca'
+   }
   }
-  const icons =[launchPad, github, mail, safari, bear, terminal, facetime, vscode ]
+  const icons =[folder, github, mail, safari, camera, vscode ]
   const ref = useRef(null);
 
   const distance = useTransform(mouseX, (val) => {
