@@ -1,9 +1,11 @@
 import IGN from '../images/IGN.png'
 import Wedding from '../images/wedding.png'
-import Hexigon from '../images/Frame_2.png'
+import Hexigon from '../images/Hexigon/Hexigon.png'
+import Hexigon2 from '../images/Hexigon/Hexigon2.png'
+import Hexigon3 from '../images/Hexigon/Hexigon3.jpg'
+import Hexigon4 from '../images/Hexigon/Hexigon4.png'
 import Playline from '../images/playline.png'
-// import Wedding from '../images/'
-// import Wedding from '../images/'
+import Playline2 from '../images/Playline2.png'
 
 export const works = [
     {
@@ -24,8 +26,20 @@ export const works = [
             color: "text-pink-500",
           },
         ],
-      image: Hexigon,
-      source_code_link: "https://github.com/",
+        links: [
+          {
+            link: "https://www.hexigon.ai/",
+            name: "Demo",
+            color: "text-[#6d56c1]",
+          },
+          {
+            name: "Private property",
+            link: "",
+            color: "text-[#ff0000]",
+          },
+        ],
+      image: [Hexigon, Hexigon2,Hexigon3,Hexigon4],
+      source_code_link: "Private Property",
     },
     {
       name: "Playline",
@@ -45,7 +59,20 @@ export const works = [
           color: "text-pink-500",
         },
       ],
-      image: Playline,
+      links: [
+        {
+          name: "Taken-down",
+          color: "text-[#ff0000]",
+          link: "",
+
+        },
+        {
+          name: "Private property",
+          link: "",
+          color: "text-[#ff0000]",
+        },
+      ],
+      image: [Playline, Playline2,],
       source_code_link: "https://github.com/",
     },
     {
@@ -66,13 +93,25 @@ export const works = [
             color: "text-pink-500",
           },
         ],
-      image: IGN,
-      source_code_link: "https://github.com/",
+        links: [
+          {
+            link: "https://samkanda.github.io/Mini-IGN-Clone/",
+            name: "Demo",
+            color: "text-[#6d56c1]",
+          },
+          {
+            name: "Github",
+            link: "https://github.com/Samkanda/Mini-IGN-Clone",
+            color: "text-[#6d56c1]",
+          },
+        ],
+        image: [IGN],
+        source_code_link: "https://github.com/",
     },
     {
-        name: "Wedding Site Mock Up",
+        name: "Wedding",
         description:
-            "A fully functioning wedding mock up site with an original design",
+            "A fully responsive wedding mock up site with an original design",
             tags: [
               {
                 name: "react",
@@ -87,8 +126,20 @@ export const works = [
                 color: "text-pink-500",
               },
             ],
-        image: Wedding,
-        source_code_link: "https://github.com/",
+            links: [
+              {
+                link: "https://samkanda.github.io/Wedding-Mock-Up/",
+                name: "Demo",
+                color: "text-[#6d56c1]",
+              },
+              {
+                name: "Github",
+                link: "https://github.com/Samkanda/Wedding-Mock-Up",
+                color: "text-[#6d56c1]",
+              },
+            ],
+            image: [Wedding],
+            source_code_link: "https://github.com/",
       },
   ];
 

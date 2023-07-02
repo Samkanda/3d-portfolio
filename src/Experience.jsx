@@ -1,14 +1,26 @@
 import { Text, Html, ContactShadows, PresentationControls, Float, Environment, useGLTF } from '@react-three/drei'
 import Embed from './Embed'
-import React, { useState } from 'react'
+import { useFrame } from '@react-three/fiber'
+import React, { useState, useEffect, useRef } from 'react'
 
 
 export default function Experience()
 {    
+    const myMesh = useRef()
     const [scale, setScale] = useState(1)
     const computer = useGLTF('https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf')
     window.addEventListener('resize', handleResize)
+
+    useEffect(() => {
+        if (window.innerWidth < 1000){
+            setScale(.5)
+            }
+            else {
+            setScale(1)
     
+            }
+  }, []);
+  
     function handleResize() {
         if (window.innerWidth < 1000){
         setScale(.5)
@@ -18,6 +30,11 @@ export default function Experience()
 
         }
     }
+    console.log(myMesh)
+    useFrame(({ clock }) => {
+        
+        // myMesh.current.rotation.y = clock.getElapsedTime()
+      })
     return <>
 
         <color args={ [ '#241a1a' ] } attach="background" />
@@ -46,6 +63,7 @@ export default function Experience()
                     object={ computer.scene }
                     position-y={ - 1.2 }
                     scale={scale}
+                    ref={myMesh} 
                     // rotation-x={ 0.13 }
                 >
                     <Html

@@ -1,25 +1,21 @@
-import React , {useState} from 'react'
+import React , {useState, useRef} from 'react'
 import { Hero } from './Hero'
 import { About } from './About';
 import { Projects } from './Projects';
 import Draggable, {DraggableCore} from 'react-draggable'; // Both at the same time
+import {onResize} from '../helpers/functions'
+import {BsCodeSlash, BsListTask, BsBriefcase} from "react-icons/bs";
 
 const Window = ({setOpen}) => {
   const [tab, setTab] = useState("Intro");
-  const [height, setHeight] = useState(500)
-  const [width, setWidth] = useState(500)
-
-  const onResize = (event, {node, size, handle}) => {
-    setWidth(size.width);
-    setHeight(size.height);
-  }
+  const container = useRef()
 
   return (
     
     <Draggable
     axis="both"
     handle=".handle"
-    defaultPosition={{x: 0, y: 30}}
+    defaultPosition={{x: 0, y: 10}}
     position={null} 
     scale={1}
     bounds=".EmbedContainer"
@@ -27,32 +23,35 @@ const Window = ({setOpen}) => {
     // onDrag={handleDrag}
     // onStop={handleStop}
     >
-    <div className='overflow-hidden h-[40rem] resize  bg-slate-600 rounded-t-lg 
+    <div ref={container} className=' overflow-hidden h-full w-4/5 sm:h-[40rem] resize pb-10  bg-slate-600 rounded-t-lg 
     max-w-full max-h-full'>
-    <div className=" handle  outer dark opacity-90 w-full rounded-[7px_7px_0px_0px];
+    <div  className=" handle  outer dark opacity-90 w-full rounded-[7px_7px_0px_0px];
     background: #b4b4b4;">
-        <div className="dot bg-red-500" onClick={()=> setOpen(false)}></div>
+        <div className="dot bg-red-500" onTouchStart={(e) =>  setOpen(false)}  onClick={()=> setOpen(false)}></div>
         <div className="dot bg-yellow-300"></div>
-        <div className="dot bg-green-500" onClick={onResize}></div>
+        <div className="dot bg-green-500" onTouchStart={(e) =>  onResize(container)}  onClick={() => onResize(container)}></div>
     </div>
-        <div className='  h-full flex'>
-          <div className='left text-gray-100  w-[10rem] h-full  '>
-            <h1 className=' cursor-pointer mx-4 py-4 hover:font-bold' onClick={() => setTab("Intro")}> Introduction</h1>
-            <div>            <h1 className='cursor-pointer mx-4 py-4 hover:font-bold' onClick={() => setTab("About")}> Resume</h1>
-</div>
-            <h1 className='cursor-pointer mx-4 my-4 hover:font-bold'onClick={() => setTab("Projects")}> Projects</h1>
+        <div className='  h-full flex flex-col sm:flex-row'>
+          <div className='left bg-[#22303C] text-gray-100  min-w-[10rem] h-48 sm:h-full  '>
+            <h1 className='flex  items-center  gap-2 interaction cursor-pointer mx-4 py-4 hover:font-bold' onTouchStart={(e) =>  setTab("Intro")} onClick={() => setTab("Intro")}>
+              <BsCodeSlash/> Introduction
+               </h1>
+            <h1 className='flex items-center gap-2 interaction cursor-pointer mx-4 py-4 hover:font-bold' onTouchStart={(e) =>  setTab("About")} onClick={() => setTab("About")}> 
+              <BsListTask/>Resume
+            </h1>
+            <h1 className='flex items-center gap-2 interaction cursor-pointer mx-4 my-4 hover:font-bold' onTouchStart={(e) =>  setTab("Projects")} onClick={() => setTab("Projects")}> 
+              <BsBriefcase/> Projects
+            </h1>
           </div>
-          <div className='right p-4 bg-[#273138] w-full h-full overflow-auto '>
+          <div className='right interaction pb-20 sm:pb-10  p-4 bg-[#1B1E1F] w-full h-full overflow-auto '>
             {tab === "Intro" && <Hero />} 
             {tab === "About" && <About />} 
             {tab === "Projects" && <Projects />} 
-
-
           </div>
         </div>
     </div> 
     </Draggable>
-
+   
    
   )
 }

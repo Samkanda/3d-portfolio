@@ -2,7 +2,11 @@ import React from 'react'
 import {motion} from 'framer-motion'
 import {works} from '../constans/constans.jsx'
 import github from '../icons/github.png'
+import { Slider } from './Slider.jsx'
+
 export const Projects = () => {
+  console.log(works)
+
   return (
     <div className='flex flex-col items-center'>
       <div className=''>
@@ -26,19 +30,21 @@ export const Projects = () => {
           <ProjectCards key={index} index={index} {...work} />
         ))}
       </div>
+     
     </div>
     </div>
   )
 }
 
-const ProjectCards = ({index, name, description, tags, image, source_code_link}) => (
+const ProjectCards = ({index, name, description, tags, image, links, source_code_link}) => (
     <div className='  bg-gray-800 p-5 rounded-2xl sm:w-[360px] w-full'>
         <div className='relative w-full h-[230px]'>
-            <img
+            {/* <img
             src={image}
             alt='project_image'
             className='w-full h-full object-cover rounded-2xl'
-            />
+            /> */}
+            <Slider image={image}/>
 
             <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
             <div
@@ -64,6 +70,13 @@ const ProjectCards = ({index, name, description, tags, image, source_code_link})
             <p key={`${name}-${tag.name}`} className={`text-[14px] ${tag.color}`}>
               #{tag.name}
             </p>
+          ))}
+        </div>
+        <div className='flex flex-col items-end justify-end text-base font-mono '>
+        {links.map((info,i) => (
+          <h1 key={i} className={`text-[14px] ${info.color}`}>
+            {info.link == "" ? info.name: <a href={info.link}>{info.name}</a> }
+          </h1>        
           ))}
         </div>
     </div>
