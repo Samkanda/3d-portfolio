@@ -9,14 +9,16 @@ import {BsCodeSlash, BsListTask, BsBriefcase} from "react-icons/bs";
 const Window = ({setOpen}) => {
   const [tab, setTab] = useState("Intro");
   const container = useRef()
+  const [isDragging, setIsDragging] = useState(true)
+
 
   return (
     
     <Draggable
     axis="both"
     handle=".handle"
-    defaultPosition={{x: 0, y: 10}}
-    position={null} 
+    defaultPosition={{x: 0, y: 30}}
+    position={!isDragging? { x: 0, y: 0 } : undefined}
     scale={1}
     bounds=".EmbedContainer"
     // onStart={handleStart}
@@ -25,15 +27,15 @@ const Window = ({setOpen}) => {
     >
     <div ref={container} className=' overflow-hidden h-full w-4/5 sm:h-[40rem] resize pb-10  bg-slate-600 rounded-t-lg 
     max-w-full max-h-full'>
-    <div  className=" handle  outer dark opacity-90 w-full rounded-[7px_7px_0px_0px];
+    <div  className=" handle outer p-2 pl-4 dark opacity-90 w-full rounded-[7px_7px_0px_0px];
     background: #b4b4b4;">
         <div className="dot bg-red-500" onTouchStart={(e) =>  setOpen(false)}  onClick={()=> setOpen(false)}></div>
         <div className="dot bg-yellow-300"></div>
-        <div className="dot bg-green-500" onTouchStart={(e) =>  onResize(container)}  onClick={() => onResize(container)}></div>
+        <div className="dot bg-green-500" onTouchStart={(e) => (onResize(container),setIsDragging(!isDragging))}  onClick={() => (onResize(container),setIsDragging(!isDragging)) }></div>
     </div>
         <div className='  h-full flex flex-col sm:flex-row'>
           <div className='left bg-[#22303C] text-gray-100  min-w-[10rem] h-48 sm:h-full  '>
-            <h1 className='flex  items-center  gap-2 interaction cursor-pointer mx-4 py-4 hover:font-bold' onTouchStart={(e) =>  setTab("Intro")} onClick={() => setTab("Intro")}>
+            <h1 className='flex  items-center  gap-2 interaction cursor-pointer px-4 py-4 hover:font-bold' onTouchStart={(e) =>  setTab("Intro")} onClick={() => setTab("Intro")}>
               <BsCodeSlash/> Introduction
                </h1>
             <h1 className='flex items-center gap-2 interaction cursor-pointer mx-4 py-4 hover:font-bold' onTouchStart={(e) =>  setTab("About")} onClick={() => setTab("About")}> 

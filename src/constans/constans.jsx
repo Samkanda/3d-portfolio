@@ -28,7 +28,7 @@ export const works = [
         ],
         links: [
           {
-            link: "https://www.hexigon.ai/",
+            link: "https://www.compo.ai/",
             name: "Demo",
             color: "text-[#6d56c1]",
           },

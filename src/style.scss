@@ -27,16 +27,10 @@ body,
 .outer {
   background: #b4b4b4;
   opacity: 0.9;
-  // width: 960px;
-  // margin: 10px auto;
-  padding: 10px;
   border-radius: 7px 7px 0px 0px;
   
   &.dark {
-    // background: #273138;
     background: linear-gradient(90deg, #22303C 10rem, #1B1E1F 10rem);
-    
-  
   }
 
   &.yosemite {
@@ -57,7 +51,6 @@ body,
   display: inline-block;
   width: 10px;
   height: 10px;
-  // background: #f9f9f9;
   border-radius: 50%;
   margin: 0 4px 0 0;
   
