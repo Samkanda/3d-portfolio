@@ -8,9 +8,10 @@ import { Modal } from './components/Modal';
 
 export default function Embed() {
   const [open, setOpen] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false)
   return (
     <>
-      <Navbar/>
+      <Navbar setModalOpen={setModalOpen} modalOpen={modalOpen}/>
       <div className="EmbedContainer  text-white h-full">
       <Draggable cancel={".interaction"} bounds={{left: 0, top: 30, right: 0, bottom: 0}} >
         <div className='h-full w-full flex justify-center items-center'>        {open ?  <Window setOpen={setOpen}/>: ""}</div>
@@ -18,7 +19,8 @@ export default function Embed() {
       {/* <Draggable cancel={".interaction"} bounds={{left: 0, top: 30, right: 0, bottom: 0}}>
       <Camera/>
       </Draggable> */}
-      {/* <Modal/> */}
+      {modalOpen ?  <Modal/> : ""}
+    
 
       </div>
       

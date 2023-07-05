@@ -25,10 +25,10 @@ const Window = ({setOpen}) => {
     // onDrag={handleDrag}
     // onStop={handleStop}
     >
-    <div ref={container} className=' overflow-hidden h-full w-4/5 sm:h-[40rem] resize pb-10  bg-slate-600 rounded-t-lg 
-    max-w-full max-h-full'>
+    <div ref={container} className=' overflow-hidden h-full w-4/5 sm:h-[40rem] resize 
+    pb-10 bg-slate-600 rounded-t-lg max-w-full max-h-full'>
     <div  className=" handle outer p-2 pl-4 dark opacity-90 w-full rounded-[7px_7px_0px_0px];
-    background: #b4b4b4;">
+    background: #b4b4b4">
         <div className="dot bg-red-500" onTouchStart={(e) =>  setOpen(false)}  onClick={()=> setOpen(false)}></div>
         <div className="dot bg-yellow-300"></div>
         <div className="dot bg-green-500" onTouchStart={(e) => (onResize(container),setIsDragging(!isDragging))}  onClick={() => (onResize(container),setIsDragging(!isDragging)) }></div>
