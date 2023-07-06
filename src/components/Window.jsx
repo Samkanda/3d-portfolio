@@ -18,14 +18,14 @@ const Window = ({setOpen}) => {
     axis="both"
     handle=".handle"
     defaultPosition={{x: 0, y: 30}}
-    position={!isDragging? { x: 0, y: 0 } : undefined}
+    position={!isDragging? { x: 0, y: 30 } : undefined}
     scale={1}
     bounds=".EmbedContainer"
     // onStart={handleStart}
     // onDrag={handleDrag}
     // onStop={handleStop}
     >
-    <div ref={container} className=' overflow-hidden h-full w-4/5 sm:h-[40rem] resize 
+    <div ref={container} className=' overflow-hidden h-full w-4/5 sm:h-[34rem] resize 
     pb-10 bg-slate-600 rounded-t-lg max-w-full max-h-full'>
     <div  className=" handle outer p-2 pl-4 dark opacity-90 w-full rounded-[7px_7px_0px_0px];
     background: #b4b4b4">
