@@ -17,6 +17,7 @@
     "vite": "^4.0.4"
   },
   "dependencies": {
+    "@material-tailwind/react": "^2.0.4",
     "@react-three/drei": "9.49",
     "@react-three/fiber": "^8.9.2",
     "framer-motion": "^10.12.16",
