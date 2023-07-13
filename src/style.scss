@@ -13,6 +13,13 @@ body,
     height: 100%;
     object-fit: cover;
 }
+.slider
+{
+  // background-color: black;
+  label{
+    background-color: #253142 !important;
+  }
+}
 .EmbedContainer{
   height: 100%;
   width: auto;
@@ -22,11 +29,12 @@ body,
 
 .outer {
   background: #b4b4b4;
-  opacity: 0.9;
+  opacity: 1;
   border-radius: 7px 7px 0px 0px;
+  margin-bottom: -1px;
   
   &.dark {
-    background: linear-gradient(90deg, #22303C 10rem, #1B1E1F 10rem);
+    background: linear-gradient(90deg, #262626 10.01rem, #1C1C1C 10rem);
   }
 
   &.yosemite {
