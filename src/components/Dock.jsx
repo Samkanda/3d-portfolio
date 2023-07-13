@@ -14,7 +14,7 @@ import {
     useTransform,
   } from "framer-motion";
 
-export function Dock({setOpen}) {
+export function Dock({setOpen, open}) {
     let mouseX = useMotionValue(Infinity);
 
   
@@ -23,10 +23,10 @@ export function Dock({setOpen}) {
       <motion.div
         onMouseMove={(e) => mouseX.set(e.pageX)}
         onMouseLeave={() => mouseX.set(Infinity)}
-        className="mx-auto flex h-16 items-end gap-4 rounded-2xl bg-gray-700 px-4 pb-3"
+        className="mx-auto flex h-16 items-end gap-4 rounded-2xl bg-[#374151] px-4 pb-3"
       >
         {[...Array(6).keys()].map((i) => (
-          <AppIcon mouseX={mouseX} count={i} key={i} setOpen={setOpen}/>
+          <AppIcon mouseX={mouseX} count={i} key={i} setOpen={setOpen} open={open}/>
         ))}
       </motion.div>
       </div>
@@ -35,10 +35,10 @@ export function Dock({setOpen}) {
 
 
   
-function AppIcon({ mouseX, count, setOpen }) {
+function AppIcon({ mouseX, count, setOpen, open }) {
   const openWindow = (i)=> {
    if(i == 0) {
-    setOpen(true)
+    setOpen(!open)
    }
    if(i == 1) {
     window.open('https://github.com/Samkanda', '_blank', 'noreferrer');
