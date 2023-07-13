@@ -8,12 +8,10 @@ export const Projects = () => {
   console.log(works)
 
   return (
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col'>
       <div className=''>
-        <motion.div>
-            <p className='sm:text-[18px] text-[14px] text-gray-400  uppercase tracking-wider'>My Work</p>
-            <h2 className='text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]'>Projects</h2>
-        </motion.div>
+      <h1 className=' font-mono text-xl font-bold text-gray-400 mb-2'>Projects</h1>
+       <div className=' w-36 h-2 rounded-lg bg-[#262626] '></div>
 
         <div className='w-full flex max-w-7xl '>
             <motion.p className='mt-4 text-[17px] leading-[30px]'>
@@ -25,7 +23,7 @@ export const Projects = () => {
             </motion.p>
         </div>
 
-      <div className='mt-20 gridCard'>
+      <div className='mt-20 gridCard justify-items-center'>
         {works.map((work, index) => ( 
           <ProjectCards key={index} index={index} {...work} />
         ))}
@@ -37,13 +35,8 @@ export const Projects = () => {
 }
 
 const ProjectCards = ({index, name, description, tags, image, links, source_code_link}) => (
-    <div className='  bg-gray-800 p-5 rounded-2xl sm:w-[360px] w-full'>
+    <div className='bg-[#1F2937]  p-5 rounded-2xl sm:w-[360px] w-full'>
         <div className='relative w-full h-[230px]'>
-            {/* <img
-            src={image}
-            alt='project_image'
-            className='w-full h-full object-cover rounded-2xl'
-            /> */}
             <Slider image={image}/>
 
             <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
