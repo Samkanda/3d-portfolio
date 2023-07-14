@@ -12,9 +12,12 @@ export default function Embed() {
   return (
     <>
       <Navbar setModalOpen={setModalOpen} modalOpen={modalOpen}/>
-      <div className="EmbedContainer  text-white h-full">
-      <Draggable cancel={".interaction"} bounds={{left: 0, top: 30, right: 0, bottom: 0}} >
-        <div className='h-full w-full flex justify-center items-center'>        {open ?  <Window setOpen={setOpen}/>: ""}</div>
+
+      <div className="EmbedContainer text-white h-full">
+      <Draggable cancel={".interaction"} bounds={{left: 0, top: 0, right: 0, bottom: 0}} >
+        <div className='h-full w-full flex justify-center items-center absolute top-8'>        
+          {open ?  <Window setOpen={setOpen} />: ""}
+        </div>
       </Draggable>
       {/* <Draggable cancel={".interaction"} bounds={{left: 0, top: 30, right: 0, bottom: 0}}>
       <Camera/>
@@ -24,7 +27,7 @@ export default function Embed() {
 
       </div>
       
-      <Dock setOpen={setOpen}/>
+      <Dock setOpen={setOpen} open={open}/>
     </>
   )
 }
